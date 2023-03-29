@@ -18,14 +18,14 @@ size_t Request::writeCallback(void *contents, size_t size, size_t nmemb, void *u
     return size * nmemb;
 }
 
-bool Request::display() {
+bool Request::requestCurl(std::string& url) {
     CURL *curl;
     CURLcode res;
     std::string readBuffer;
 
     curl = curl_easy_init();
     if(curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, "https://api.nasa.gov/planetary/apod?api_key=a0NEfSjMIEjyE2avsUmT8DYgl4jZwlpA8GtdGgaW");
+        curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
         res = curl_easy_perform(curl);
