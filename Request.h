@@ -2,17 +2,14 @@
 #define APOD_REQUEST_H
 
 #include <iostream>
+#include "Parser.h"
 #include <curl/curl.h>
 
-class Request {
+class Request : public Parser {
 public:
     Request();
-    std::string getUrl() const;
-    void setUrl(std::string& url);
-    static bool requestCurl(std::string& url);
+    virtual bool requestCurl(std::string& url);
     static size_t writeCallback(void *contents, size_t size, size_t nmemb, void *userp);
-private:
-    std::string m_url;
 };
 
 
