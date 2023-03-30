@@ -1,15 +1,12 @@
 #include "Request.h"
 
-Request::Request() {
-    std::cout << "hello from request" << std::endl;
-}
 
 size_t Request::writeCallback(void *contents, size_t size, size_t nmemb, void *userp) {
     ((std::string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
 }
 
-bool Request::requestCurl(std::string& url) {
+std::string Request::requestCurl(std::string& url) {
     CURL *curl;
     CURLcode res;
     std::string readBuffer;
@@ -23,9 +20,9 @@ bool Request::requestCurl(std::string& url) {
         curl_easy_cleanup(curl);
 
         std::cout << readBuffer << std::endl;
-        m_test = readBuffer;
+
     }
-    return true;
+    return m_url = readBuffer;
 }
 
 

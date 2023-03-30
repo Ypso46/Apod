@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Request.h"
+#include "Parser.h"
 
 int main() {
     std::string URL = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -14,7 +14,7 @@ int main() {
         return 1;
     }
 
-    Request::requestCurl(finalURL);
+    Parser::ParserJSON(finalURL);
 
     return 0;
 }

@@ -1,10 +1,9 @@
 #include "Parser.h"
+#include "Request.h"
 
-Parser::Parser() {
-    std::cout << "Hello from default constructor Parser" << std::endl;
-}
 
-void Parser::ParserJSON(std::string &input) const {
+void Parser::ParserJSON(std::string &input){
+    std::cout << "Hello from inheritance class in Parser" << std::endl;
     Request test;
-    std::cout << "test" << std::endl;
+    test.requestCurl(input);
 }

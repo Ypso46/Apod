@@ -1,13 +1,11 @@
 #ifndef APOD_PARSER_H
 #define APOD_PARSER_H
-#include "Request.h"
 
+#include <iostream>
 
 class Parser {
 public:
-    Parser();
-    void ParserJSON(std::string &input) const;
-private:
+    static void ParserJSON(std::string &input);
 };
 
 
