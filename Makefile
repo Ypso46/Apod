@@ -1,7 +1,7 @@
 default: build
 
 build: clean
-	c++ *.cpp -lcurl -o apod
+	c++ *.cpp -lcurl -std=c++11 -I./ -o apod
 
 clean:
 	rm -f apod

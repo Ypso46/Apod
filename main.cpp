@@ -1,5 +1,7 @@
+#include <fstream>
 #include <iostream>
 #include "Parser.h"
+
 
 int main() {
     std::string URL = "https://api.nasa.gov/planetary/apod?api_key=";

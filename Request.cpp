@@ -6,14 +6,17 @@ size_t Request::writeCallback(void *contents, size_t size, size_t nmemb, void *u
     return size * nmemb;
 }
 
-std::string Request::requestCurl(std::string& url) {
+void Request::requestCurl(std::string &url) {
     CURL *curl;
     CURLcode res;
     std::string readBuffer;
 
     curl = curl_easy_init();
     if(curl) {
+        curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+        curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+        curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
         res = curl_easy_perform(curl);
@@ -22,7 +25,13 @@ std::string Request::requestCurl(std::string& url) {
         std::cout << readBuffer << std::endl;
 
     }
-    return m_url = readBuffer;
+
+    //the code bellow is to write out into an external file
+    std::ofstream file_out;
+    file_out.open("test.txt");
+    file_out << readBuffer;
+
+
 }
 
 
