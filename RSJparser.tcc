@@ -507,11 +507,11 @@ void RSJresource::parse_full (bool force, int max_depth, int* parse_count_for_ve
 // ------------------------------------------------------------
 // ============================================================
 // FAST PARSER (Under construction. DO NOT use the following functions in your application.)
-
-inline 
-int seek_next (std::string* str_p, int start_pos, char character) {
-    
-}
+//
+//inline
+//int seek_next (std::string* str_p, int start_pos, char character) {
+//
+//}
 
 inline 
 void RSJresource::fast_parse (std::string* str_p, bool copy_string, int max_depth, int* parse_start_str_pos) {
