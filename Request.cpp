@@ -22,13 +22,12 @@ void Request::requestCurl(std::string &url) {
         res = curl_easy_perform(curl);
         curl_easy_cleanup(curl);
 
-        //std::cout << readBuffer << std::endl;
-
+        std::cout << readBuffer;
     }
 
     //the code bellow is to write out into an external file
     std::ofstream file_out;
-    file_out.open("test.txt");
+    file_out.open("tempFile.txt");
     file_out << readBuffer;
 
 
