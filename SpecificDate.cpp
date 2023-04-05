@@ -1,6 +1,12 @@
 #include "SpecificDate.h"
 
 std::string specificDate() {
+    static std::string finalDate;
+
+    if (!finalDate.empty()) {
+        return finalDate;
+    }
+
     std::string year;
     std::cout << "Enter a year: " << std::endl;
     std::cin >> year;
@@ -13,8 +19,9 @@ std::string specificDate() {
     std::cout << "Enter a day: " << std::endl;
     std::cin >> day;
 
-    std::string finalDate = year + '-' + month + '-' + day;
+    finalDate = year + '-' + month + '-' + day;
     std::cout << finalDate << std::endl;
 
     return finalDate;
 }
+

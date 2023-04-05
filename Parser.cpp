@@ -4,8 +4,8 @@
 void Parser::ParserJSON(std::string &URL) {
     Request toBeParsed;
     toBeParsed.requestCurl(URL);
-    std::string dateOfFile = specificDate();
-    std::string nameOfFile = "apod" + dateOfFile;
+    std::cout << specificDate() << std::endl;
+    std::string nameOfFile = "apod" + specificDate();
 
     std::ifstream my_fileStream("tempFile.txt");
     RSJresource testToParse(my_fileStream);

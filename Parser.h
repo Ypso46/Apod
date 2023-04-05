@@ -6,10 +6,10 @@
 #include "RSJparser.tcc"
 #include "SpecificDate.h"
 
+
 class Parser {
 public:
     static void ParserJSON(std::string &URL);
 };
-
 
 #endif //APOD_PARSER_H

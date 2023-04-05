@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Request.h"
 #include "SpecificDate.h"
+#include "Cache.h"
 
 int main() {
     std::string URL = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -16,12 +17,13 @@ int main() {
     }
 
     // the code bellow is to make a request with a specific date
-    std::string finalDate = specificDate();
-    std::string finalURLWithDate = finalURL + "&date=" + finalDate;
+    specificDate();
+    Cache requestDate;
+    requestDate.isThereCache(specificDate());
+
+    std::string finalURLWithDate = finalURL + "&date=" + specificDate();
     std::cout << finalURLWithDate << std::endl;
     Parser::ParserJSON(finalURLWithDate);
-
-
 
     return 0;
 }
