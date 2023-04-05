@@ -1,12 +1,11 @@
 #include "Request.h"
 
-
 size_t Request::writeCallback(void *contents, size_t size, size_t nmemb, void *userp) {
     ((std::string*)userp)->append((char*)contents, size * nmemb);
     return size * nmemb;
 }
 
-void Request::requestCurl(std::string &url) {
+void Request::requestCurl(const std::string &url) {
     CURL *curl;
     CURLcode res;
     std::string readBuffer;
@@ -24,12 +23,6 @@ void Request::requestCurl(std::string &url) {
 
         std::cout << readBuffer;
     }
-
-    //the code bellow is to write out into an external file
-    std::ofstream file_out;
-    file_out.open("tempFile.txt");
-    file_out << readBuffer;
-
 
 }
 
