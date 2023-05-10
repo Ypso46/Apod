@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     std::vector<std::string> otherArguments;
 
 
+
     // the code bellow is to make a request with a specific date
     std::string date = specificDate();
 
