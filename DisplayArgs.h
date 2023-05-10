@@ -2,11 +2,13 @@
 #define APOD_DISPLAYARGS_H
 
 #include <iostream>
+#include "Process.h"
 
-class DisplayArgs {
-    DisplayArgs();
+class DisplayArgs: public Process {
+public:
     void DisplayHelp();
     void DisplayDate(int argc, char * argv[]);
+private:
 };
 
 

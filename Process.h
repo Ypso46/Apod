@@ -4,8 +4,10 @@
 #include <iostream>
 
 class Process {
-    Process();
+public:
+    void displayDefault();
     std::string displayArgs(int argc, char * argv[]);
+private:
 };
 
 
