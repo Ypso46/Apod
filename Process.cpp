@@ -8,6 +8,6 @@ void Process::displayDefault() {
 }
 
 std::string Process::displayArgs(int argc, char * argv[]) {
-
+    std::cout << "test" << std::endl;
     return 0;
 }
