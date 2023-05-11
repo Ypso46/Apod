@@ -7,7 +7,7 @@ std::string URLMaker(std::string date) {
     const char* API_KEY = std::getenv("APOD_API_KEY");
 
     if (!date.empty()) {
-        finalURL = URL + API_KEY + "&date=" + specificDate();
+        finalURL = URL + API_KEY + "&date=" + currentDate();
     } else if (date.empty() && API_KEY) {
         finalURL = URL + API_KEY;
     } else {

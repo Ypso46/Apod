@@ -5,9 +5,9 @@ namespace fs = std::__fs::filesystem;
 
 void Cache::isThereCache(std::string &URL) {
 
-    std::cout << specificDate() << std::endl;
-    std::string nameOfFile = "apod" + specificDate();
-    std::string finalURL = URL + specificDate();
+    std::cout << currentDate() << std::endl;
+    std::string nameOfFile = "apod" + currentDate();
+    std::string finalURL = URL + currentDate();
 
     std::ifstream my_fileStream(nameOfFile + ".txt");
 
@@ -18,7 +18,7 @@ void Cache::isThereCache(std::string &URL) {
     } else {
         std::cout << "Nope, I do not have that date, so I request it now!" << std::endl;
         Request doRequest;
-        std::string test = specificDate();
+        std::string test = currentDate();
         doRequest.requestCurl(URLMaker(test));
     }
 }
