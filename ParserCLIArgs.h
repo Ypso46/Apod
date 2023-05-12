@@ -10,10 +10,13 @@ static std::string finalDate;
 
 class ParserCLIArgs {
 public:
-    void displayDefault(int argc, char * argv[]);
+    ParserCLIArgs(int argc, char * argv[]);
+    const std::string& getCmdOption(const std::string &option) const;
+    bool cmdOptionExists(const std::string &option) const;
     std::string displayArgs(int argc, char * argv[]);
     void displayHelp();
 private:
+    std::vector<std::string> m_args;
 };
 
 

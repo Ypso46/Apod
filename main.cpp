@@ -7,11 +7,12 @@
 int main(int argc, char *argv[]) {
 
     //This part handle the CLI arguments
-    std::string currentProgramName = argv[0];
     static std::vector<std::string> otherArguments(argv, argv + argc);
 
-    ParserCLIArgs isThereAnArg;
-    isThereAnArg.displayDefault(argc, argv);
+    ParserCLIArgs isThereArgs(argc, argv);
+    if(isThereArgs.cmdOptionExists("-h")){
+        isThereArgs.displayHelp();
+    }
 
 //    // the code bellow is to make a request with a specific date
 //    std::string date = currentDate();
