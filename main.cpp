@@ -1,16 +1,20 @@
 #include <iostream>
-#include "Cache.h"
-#include "URLMaker.h"
 #include "ParserCLIArgs.h"
 
 
 int main(int argc, char *argv[]) {
 
-    //This part handle the CLI arguments
-    static std::vector<std::string> otherArguments(argv, argv + argc);
-
     ParserCLIArgs isThereArgs(argc, argv);
-    if(isThereArgs.cmdOptionExists("-h")){
+
+    if (isThereArgs.cmdOptionExists("-h") || isThereArgs.cmdOptionExists("--help")) {
+        isThereArgs.displayHelp();
+    }
+
+    //TODO see what's this snippet does...
+    std::string date = isThereArgs.getCmdOption("-d");
+    if (!date.empty()){
+        isThereArgs.displayDate(date);
+    } else { //if (date.empty())
         isThereArgs.displayHelp();
     }
 

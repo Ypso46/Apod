@@ -1,42 +1,17 @@
 #include "ParserCLIArgs.h"
 
-using namespace std::chrono;
-
+//transform the argv array from a C-type array of strings to a C++ vector of strings
 ParserCLIArgs::ParserCLIArgs(int argc, char * argv[]) {
-    for (int i=1; i < argc; ++i) {
+    for (int i = 1; i < argc; ++i) {
         m_args.push_back(std::string(argv[i]));
     }
-
-
-
-
-//
-//    std::cout << "Welcome in APOD" << std::endl;
-//
-//    if (argc == 1) {
-//        std::cout << "The current date is: " << currentDate() << std::endl;
-//    }
-//
-//    if ( **argv == '-' ) {
-//            switch (*argv[1]) {
-//                case 'd' :
-//                    std::cout << "You are in the case d of the switch" << std::endl;
-//                    break;
-//                case 'h' :
-//                    std::cout << "You are in the case h of the switch" << std::endl;
-//                    ParserCLIArgs::displayHelp();
-//                    break;
-//                default:
-//                    std::cout << "You've reach the default case" << std::endl;
-//                    break;
-//        }
-//    }
 }
 
+//return the argument after 'option', or the empty string if not found
 const std::string& ParserCLIArgs::getCmdOption(const std::string &option) const {
     std::vector<std::string>::const_iterator itr;
-    itr =  std::find(m_args.begin(), m_args.end(), option);
-    if (itr != m_args.end() && ++itr != m_args.end()){
+    itr = std::find(m_args.begin(),m_args.end(),option);
+    if (itr != m_args.end() && ++itr != m_args.end()) {
         return *itr;
     }
     static const std::string empty_string("");
@@ -44,8 +19,7 @@ const std::string& ParserCLIArgs::getCmdOption(const std::string &option) const 
 }
 
 bool ParserCLIArgs::cmdOptionExists(const std::string &option) const {
-    return std::find(m_args.begin(), m_args.end(), option)
-        != m_args.end();
+    return std::find(m_args.begin(), m_args.end(), option) != m_args.end();
 }
 
 void ParserCLIArgs::displayHelp() {
@@ -54,11 +28,12 @@ void ParserCLIArgs::displayHelp() {
         << "You are in the help menu of the APOD software! \n"
         << "Commands            Format          Description \n"
         << "-------             ----            ----------- \n"
+        << "-h, --help                          Display the help menu with all possible commands \n"
         << "-d, --date          [yyyy.mm.dd]    Display APOD of the specific date \n"
     << std::endl;
 }
-//
-//std::string ParserCLIArgs::displayArgs(int argc, char * argv[]) {
-//
-//    return 0;
-//}
+
+void ParserCLIArgs::displayDate(std::string &date) {
+    //std::string URL = URLMaker(date);
+    std::cout << "I'm going to download the APOD of..." << date << std::endl;
+}
