@@ -1,4 +1,5 @@
 #include "AddQueryStringsToURL.h"
+#include "currentDate.h"
 
 std::string AddQueryStringToURL(const std::string &date) {
     static std::string finalURL;

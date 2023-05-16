@@ -2,6 +2,7 @@
 #include "AddQueryStringsToURL.h"
 #include "Request.h"
 #include "SaveJSONIntoTextFile.h"
+#include "currentDate.h"
 
 void Apod::displayHelp() {
     std::cout
@@ -25,5 +26,7 @@ void Apod::showApodDefaultDate() {
     std::string URL = AddQueryStringToURL(currentDate());
     Request request;
     request.requestCurl(URL);
-
+    std::string result = request.requestCurl(URL);
+    std::string datetOfTheDay = currentDate();
+    SaveJSONIntoTextFile(datetOfTheDay, result);
 }

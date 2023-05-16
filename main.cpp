@@ -1,7 +1,6 @@
 #include <iostream>
 #include "ParserCLIArgs.h"
 #include "Apod.h"
-#include "Common.h"
 
 std::string date;
 

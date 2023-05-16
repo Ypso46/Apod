@@ -2,7 +2,6 @@
 #define APOD_ADDQUERYSTRINGSTOURL_H
 
 #include <iostream>
-#include "currentDate.h"
 
 std::string AddQueryStringToURL(const std::string &date);
 
