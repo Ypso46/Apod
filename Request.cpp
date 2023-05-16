@@ -5,7 +5,7 @@ size_t Request::writeCallback(void *contents, size_t size, size_t nmemb, void *u
     return size * nmemb;
 }
 
-void Request::requestCurl(const std::string &url) {
+std::string Request::requestCurl(const std::string &url) {
     CURL *curl;
     CURLcode res;
     std::string readBuffer;
@@ -20,10 +20,8 @@ void Request::requestCurl(const std::string &url) {
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
         res = curl_easy_perform(curl);
         curl_easy_cleanup(curl);
-
-        std::cout << readBuffer;
     }
-
+    return readBuffer;
 }
 
 

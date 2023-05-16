@@ -8,7 +8,5 @@ std::string currentDate() {
     oss << std::put_time(&tm, "%Y-%m-%d");
     auto str = oss.str();
 
-    std::cout << str << std::endl;
-
     return str;
 }

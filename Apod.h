@@ -6,7 +6,9 @@
 class Apod {
 public:
     void displayHelp();
-    void showApod(std::string &date);
+    void showApodSpecificDate(std::string &date);
+    void showApodDefaultDate();
+
 };
 
 

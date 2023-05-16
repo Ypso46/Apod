@@ -4,6 +4,6 @@
 #include <iostream>
 #include "currentDate.h"
 
-std::string AddQueryStringToURL(std::string date);
+std::string AddQueryStringToURL(const std::string &date);
 
 #endif //APOD_ADDQUERYSTRINGSTOURL_H
