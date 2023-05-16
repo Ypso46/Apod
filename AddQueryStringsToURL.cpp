@@ -1,6 +1,6 @@
-#include "URLMaker.h"
+#include "AddQueryStringsToURL.h"
 
-std::string URLMaker(std::string date) {
+std::string AddQueryStringToURL(std::string date) {
     static std::string finalURL;
     std::string URL = "https://api.nasa.gov/planetary/apod?api_key=";
 

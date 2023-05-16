@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
-#include "URLMaker.h"
+#include "AddQueryStringsToURL.h"
 #include "currentDate.h"
 
 class Cache {

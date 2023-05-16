@@ -19,6 +19,6 @@ void Cache::isThereCache(std::string &URL) {
         std::cout << "Nope, I do not have that date, so I request it now!" << std::endl;
         Request doRequest;
         std::string test = currentDate();
-        doRequest.requestCurl(URLMaker(test));
+        doRequest.requestCurl(AddQueryStringToURL(test));
     }
 }
