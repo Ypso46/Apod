@@ -12,10 +12,17 @@ int main(int argc, char *argv[]) {
         apod.displayHelp();
     }
 
-    std::string date = isThereArgs.getCmdOption("-d");
 
-    if (!date.empty()) {
+    if (isThereArgs.cmdOptionExists("-d") || isThereArgs.cmdOptionExists("--date")) {
+        // CHANGES START HERE
+        const char *dateFlagShort = "-d";
+        const char *dateFlagLong = "--date";
+        const char *dateFlag = isThereArgs.cmdOptionExists("-d") ? dateFlagShort : dateFlagLong;
+        // CHANGES END HERE
+
+        std::string date = isThereArgs.getCmdOption(dateFlag);
         apod.showApodSpecificDate(date);
+
     } else {
         apod.showApodDefaultDate();
     }
