@@ -2,7 +2,6 @@
 #include "ParserCLIArgs.h"
 #include "Apod.h"
 
-std::string date;
 
 int main(int argc, char *argv[]) {
 
@@ -13,8 +12,8 @@ int main(int argc, char *argv[]) {
         apod.displayHelp();
     }
 
-    date = isThereArgs.getCmdOption("-d");
-    
+    std::string date = isThereArgs.getCmdOption("-d");
+
     if (!date.empty()) {
         apod.showApodSpecificDate(date);
     } else {
