@@ -5,22 +5,19 @@
 
 int main(int argc, char *argv[]) {
 
-    ParserCLIArgs isThereArgs(argc, argv);
+    ParserCLIArgs args(argc, argv);
     Apod apod;
 
-    if (isThereArgs.cmdOptionExists("-h") || isThereArgs.cmdOptionExists("--help")) {
+    std::string helpFlag = args.anyThatExists({ "-h", "--help", "--aide", "--hilfe" });
+    if (! helpFlag.empty()) {
         apod.displayHelp();
+        return 0;
     }
 
-
-    if (isThereArgs.cmdOptionExists("-d") || isThereArgs.cmdOptionExists("--date")) {
-        const char *dateFlagShort = "-d";
-        const char *dateFlagLong = "--date";
-        const char *dateFlag = isThereArgs.cmdOptionExists("-d") ? dateFlagShort : dateFlagLong;
-
-        std::string date = isThereArgs.getCmdOption(dateFlag);
+    std::string dateFlag = args.anyThatExists({ "-d", "--date" });
+    if (dateFlag != "") {
+        std::string date = args.getCmdOption(dateFlag);
         apod.showApodSpecificDate(date);
-
     } else {
         apod.showApodDefaultDate();
     }

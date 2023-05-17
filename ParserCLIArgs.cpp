@@ -23,4 +23,13 @@ bool ParserCLIArgs::cmdOptionExists(const std::string &option) const {
     return std::find(m_args.begin(), m_args.end(), option) != m_args.end();
 }
 
-
+// Return the first option in `options` that exists, otherwise the empty string.
+const std::string ParserCLIArgs::anyThatExists(std::initializer_list<const std::string> options) const {
+    // return cmdOptionExists(option1) ? option1 : cmdOptionExists(option2) ? option2 : "";
+    for (const std::string option : options) {
+        if (cmdOptionExists(option)) {
+            return option;
+        }
+    }
+    return "";
+}
