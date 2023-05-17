@@ -1,7 +1,6 @@
 #include <fstream>
 #include "SaveJSONIntoTextFile.h"
 #include "currentDate.h"
-#include "Apod.h"
 #include <cstdlib>
 
 namespace fs = std::__fs::filesystem;

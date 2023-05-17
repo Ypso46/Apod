@@ -8,7 +8,7 @@ public:
     void displayHelp();
     void showApodSpecificDate(std::string &date);
     void showApodDefaultDate();
-
+    bool isCacheActivated();
 };
 
 

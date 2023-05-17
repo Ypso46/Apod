@@ -14,9 +14,10 @@ int main(int argc, char *argv[]) {
     }
 
     date = isThereArgs.getCmdOption("-d");
+    
     if (!date.empty()) {
         apod.showApodSpecificDate(date);
-    } else { //if (date.empty())
+    } else {
         apod.showApodDefaultDate();
     }
 
