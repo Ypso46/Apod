@@ -1,6 +1,5 @@
 #include <fstream>
 #include "SaveJSONIntoTextFile.h"
-#include "Request.h"
 #include "currentDate.h"
 #include "Apod.h"
 #include <cstdlib>
@@ -10,17 +9,16 @@ namespace fs = std::__fs::filesystem;
 void SaveJSONIntoTextFile(std::string &date, std::string &content) {
     std::string nameOfFile;
     if (date.empty()) {
-        nameOfFile = "apod" + currentDate();
+        nameOfFile = "apod" + currentDate() + ".txt";
     } else {
-        nameOfFile = "apod" + date;
+        nameOfFile = "apod" + date + ".txt";
     }
 
-    std::string finalName = "open " + nameOfFile + ".txt";
+    std::string finalName = "open " + nameOfFile;
 
-    std::ofstream file_out;
-    file_out.open(finalName, std::ios::out);
+    std::ofstream file_out(nameOfFile);
     file_out << content;
     file_out.close();
-    
+
     std::system(finalName.c_str());
 }
