@@ -20,6 +20,7 @@ void Apod::showApodSpecificDate(std::string &date) {
     Request request;
     std::string result = request.requestCurl(URL);
     SaveJSONIntoTextFile(date, result);
+    std::cout << "The request was made for the date of: " << date << " with cache activated\n";
 }
 
 void Apod::showApodDefaultDate() {
@@ -29,4 +30,15 @@ void Apod::showApodDefaultDate() {
     std::string result = request.requestCurl(URL);
     std::string datetOfTheDay = currentDate();
     SaveJSONIntoTextFile(datetOfTheDay, result);
+    std::cout << "The request was made for the date of: " << currentDate() << "\n";
+}
+
+bool Apod::clearCacheActivated(const std::string &choice) {
+    bool clearCache;
+    if (choice == "true") {
+        clearCache = true;
+    } else {
+        clearCache = false;
+    }
+    return clearCache;
 }

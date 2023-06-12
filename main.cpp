@@ -2,11 +2,19 @@
 #include "ParserCLIArgs.h"
 #include "Apod.h"
 
-
 int main(int argc, char *argv[]) {
 
     ParserCLIArgs args(argc, argv);
     Apod apod;
+
+    std::string isCacheActivated = args.anyThatExists({ "-cc", "--clear cache" });
+    if (! isCacheActivated.empty()) {
+        apod.clearCacheActivated("true");
+    } else {
+        apod.clearCacheActivated("false");
+    }
+
+    std::cout << "The cache is activated?" << isCacheActivated << "\n";
 
     std::string helpFlag = args.anyThatExists({ "-h", "--help", "--aide", "--hilfe" });
     if (! helpFlag.empty()) {

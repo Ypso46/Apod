@@ -9,7 +9,7 @@ clean:
 clearcache:
 	rm -f apod*.txt
 
-DATE = 2023-05-10
+#DATE = 2023-05-10
 test: build
-	./apod --date $(DATE)
-	./apod -d $(DATE)
+	./apod #--date $(DATE)
+	#./apod -d $(DATE)
